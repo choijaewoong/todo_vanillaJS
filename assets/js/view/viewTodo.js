@@ -1,23 +1,19 @@
 (function (window) {
 	'use strict';
-    function View() {
-    
+    function View(template) {
+        this.template = template;        
     }
 
-    View.prototype.init = function() {
+    View.prototype.showTodoList = function(todos) {
         var $todoList = document.querySelector('.todo-list');
         var keys = [], key = '';
-        // ctrl.todo.loadAll();
-        keys = Object.keys(model.todos.todoArr);
-        for(var i = 0; i<keys.length; i++) {
-            key = keys[i];
-            var listItem = document.createElement('li')
-        }
+
+        var listItem = this.template.getAllTodos(todos.todoArr);        
+        $todoList.innerHTML = listItem;
     }
 
     // Export to window
 	window.app = window.app || {};
 	window.app.View = View;
-
 
 })(window);

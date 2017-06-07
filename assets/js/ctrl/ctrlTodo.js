@@ -3,7 +3,33 @@
     function Controller(todos, view) {
         this.todos = todos;
         this.view = view;
-    } 
+    }
+
+    Controller.prototype.loadAll = function() {
+        var key = "", 
+            keys = [], 
+            todoTableString = "", 
+            todoTable = {};
+        try {
+            if(localStorage["todoTable"]) {
+                todoTableString = localStorage["todoTable"];
+            }
+        } catch(e) {
+            alert("Error when reading from Local Storage\n" + e);
+        }
+        if(todoTableString) {
+            todoTable = JSON.parse(todoTableString);     
+            keys = Object.keys(todoTable.todoArr);
+            console.log(keys.length + "books loaded.");
+            for(var i=0; i<keys.length; i++) {
+                key = keys[i];
+                // this.todos.todoArr[key] = new app.Todo(todoTable.todoArr[key]);
+                this.todos.todoArr[key] = todoTable.todoArr[key];
+                // model.books[key] = ctrl.book.convertRow2Obj(bookTable[key]);
+            }
+        }
+        this.view.showTodoList(this.todos);
+    };
 
     Controller.prototype.saveAll = function() {
         var todoTableString = "",

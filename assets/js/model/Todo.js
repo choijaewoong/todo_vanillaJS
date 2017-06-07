@@ -11,7 +11,7 @@
     function Todo(todo) {
         this.id = todo.id;
         this.title = todo.title;
-        this.state = todo.state;
+        this.isCompleted = todo.isCompleted;
     }
 
     // Export to window
