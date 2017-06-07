@@ -1,21 +1,32 @@
-ctrl.todo = {
-    saveAll : function() {
+(function (window) {
+    'use strict';
+    function Controller(todos, view) {
+        this.todos = todos;
+        this.view = view;
+    } 
+
+    Controller.prototype.saveAll = function() {
         var todoTableString = "",
-            error = false;
-            // model.todos.total = Object.values(model.todos);
+        error = false;
         try {
-            todoTableString = JSON.stringify(model.todos);
+            todoTableString = JSON.stringify(this.todos);
             localStorage["todoTable"] = todoTableString;
         } catch(e) {
             alert("Error when writing to Local Storage\n" + e);
             error = true;
         }
         if(!error) console.log(0 + " books saved");
-    },
-    createTestData : function() {
-        model.todos.todoArr["0"] = new model.todo({id:"0", title:"exercise", state:"active"});
-        model.todos.todoArr["1"] = new model.todo({id:"1", title:"work", state:"active"});
-        model.todos.todoArr["2"] = new model.todo({id:"2", title:"study", state:"completed"});
-        ctrl.todo.saveAll();
+    };
+
+    Controller.prototype.createTestData = function() {        
+        this.todos.todoArr["0"] = new app.Todo({id:"0", title:"exercise", state:"active"});
+        this.todos.todoArr["1"] = new app.Todo({id:"1", title:"work", state:"active"});
+        this.todos.todoArr["2"] = new app.Todo({id:"2", title:"study", state:"completed"});
+        this.saveAll();
     }
-}
+
+    // Export to window
+	window.app = window.app || {};
+	window.app.Controller = Controller;
+
+})(window);
