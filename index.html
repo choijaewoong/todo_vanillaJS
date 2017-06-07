@@ -34,9 +34,15 @@
 		</section>
 		<footer class="info">
 			<p>Double-click to edit a todo</p>
-			<p>Created by <a href="http://twitter.com/oscargodson">Oscar Godson</a></p>
-			<p>Refactored by <a href="https://github.com/cburgmer">Christoph Burgmer</a></p>
+			<p>Created by <a href="http://facebook.com/choijaewoong">Oscar Godson</a></p>
+			<p>Refactored by <a href="https://github.com/choijaewoong">Christoph Burgmer</a></p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
+		<script src="assets/js/ctrl/initialize.js"></script>
+		<script src="assets/js/model/Todo.js"></script>
+		<script src="assets/js/ctrl/ctrlTodo.js"></script>
+		<script>
+			window.addEventListener("load", ctrl.todo.createTestData);
+		</script>
 	</body>
 </html>
