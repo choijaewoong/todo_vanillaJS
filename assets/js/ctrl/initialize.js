@@ -4,7 +4,7 @@
     function Init() {
         this.template = new app.Template();
         this.todos = new app.Todos();
-        this.view = new app.View(this.template);
+        this.view = new app.ViewTodo(this.template);
         this.ctrl = new app.Controller(this.todos, this.view);
     }
     var init = new Init();

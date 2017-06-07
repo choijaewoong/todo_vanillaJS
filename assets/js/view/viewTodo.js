@@ -1,10 +1,10 @@
 (function (window) {
 	'use strict';
-    function View(template) {
+    function ViewTodo(template) {
         this.template = template;        
     }
 
-    View.prototype.showTodoList = function(todos) {
+    ViewTodo.prototype.showTodoList = function(todos) { 
         var $todoList = document.querySelector('.todo-list');
         var keys = [], key = '';
 
@@ -14,6 +14,6 @@
 
     // Export to window
 	window.app = window.app || {};
-	window.app.View = View;
+	window.app.ViewTodo = ViewTodo;
 
 })(window);

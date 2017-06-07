@@ -7,7 +7,6 @@
         this.total = 0;
         this.todoArr = {};
     }
-
     function Todo(todo) {
         this.id = todo.id;
         this.title = todo.title;
@@ -16,8 +15,7 @@
 
     // Export to window
     window.app = window.app || {};
-	window.app.Todos = Todos;
+    window.app.Todos = Todos;
     window.app.Todo = Todo;
-    
 
 })(window);
