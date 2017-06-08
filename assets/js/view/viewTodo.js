@@ -8,7 +8,7 @@
         var $todoList = document.querySelector('.todo-list');
         var keys = [], key = '';
 
-        var listItem = this.template.getAllTodos(data.todoArr);        
+        var listItem = this.template.getAllTodos(data);        
         $todoList.innerHTML = listItem;
     }
 

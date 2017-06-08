@@ -17,14 +17,26 @@
     Todos.prototype.create = function() {
         
     }
-    Todos.prototype.read = function(callback) {
-        this.storage.findAll(callback);
+    Todos.prototype.read = function(callback, query) {
+        var type = typeof(query);
+        switch(type) {
+            case "undefined" : 
+                this.storage.findAll(callback);
+                break;
+            case "boolean" :
+                this.storage.findAll(calllback);
+            case "string" :
+            case "number" :
+                 console.log("error");
+            default :
+                break;
+        }        
     }
     Todos.prototype.update = function() {
 
     }
     Todos.prototype.delete = function() {
-        
+
     }
 
     // Export to window
