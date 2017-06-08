@@ -13,24 +13,11 @@
     Template.prototype.getAllTodos = function(todoArr) {
         var view = '';
         var key = "", keys = [];
-        
         keys = Object.keys(todoArr);
         for(var i=0; i< keys.length; i++) {
             key = keys[i];
             var template = this.getTodo(todoArr[key]);
-            // var template = this.templateTodoItem;
-            // var completed = '';
-            // var checked = '';
-            // if (todoArr[key].isCompleted) {
-            //     completed = 'completed';
-            //     checked = 'checked';
-            // }
-
-			// template = template.replace('{{id}}', todoArr[key].id);
-			// template = template.replace('{{title}}', encodeURI(todoArr[key].title));
-			// template = template.replace('{{completed}}', completed);
-			// template = template.replace('{{checked}}', checked);
-
+            
             view += template;
         }
         return view;

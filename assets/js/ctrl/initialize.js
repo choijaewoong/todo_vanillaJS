@@ -3,7 +3,8 @@
 
     function Init() {
         this.template = new app.Template();
-        this.todos = new app.Todos();
+        this.storage = new app.StoreTodo();        
+        this.todos = new app.Todos(this.storage);
         this.view = new app.ViewTodo(this.template);
         this.ctrl = new app.Controller(this.todos, this.view);
     }
