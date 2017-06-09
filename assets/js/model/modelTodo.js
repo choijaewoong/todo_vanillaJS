@@ -14,8 +14,8 @@
         this.isCompleted = todo.isCompleted;
     }
 
-    Todos.prototype.create = function() {
-        
+    Todos.prototype.create = function(callback) {
+        this.storage.saveAll(callback);        
     }
     Todos.prototype.read = function(callback, query) {
         var type = typeof(query);

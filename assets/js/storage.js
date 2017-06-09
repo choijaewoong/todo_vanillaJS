@@ -1,27 +1,10 @@
 (function (window) {
     'use strict';
 
-    function StoreTodo() {
-        // this.todoTable = {};
-        // this.init();
-    }
+    function StoreTodo() {}
 
-    StoreTodo.prototype.init = function() {
-        var key = "", 
-            keys = [], 
-            todoTableString = "";
-            // todoTable = {};
-        try {
-            if(localStorage["todoTable"]) {
-                todoTableString = localStorage["todoTable"];
-            }
-        } catch(e) {
-            alert("Error when reading from Local Storage\n" + e);
-        }
-        if(todoTableString) {
-            this.todoTable = JSON.parse(todoTableString);
-            // callback.call(this, todoTable);
-        }
+    StoreTodo.prototype.saveAll = function(callback, todoArr) {
+        console.log("test");
     }
     StoreTodo.prototype.findAll = function(callback) {
         var todoTableString = "", 

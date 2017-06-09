@@ -1,8 +1,12 @@
 (function (window) {
     'use strict';
     function Controller(todos, view) {
+        var ctrl = this;
         this.todos = todos;
         this.view = view;
+        this.view.bindAddTodoEvent(function(title) {
+            ctrl.addItem(title);
+        });
     }
 
     Controller.prototype.loadAll = function() {
@@ -26,17 +30,11 @@
         }, true);
     };
 
-    Controller.prototype.saveAll = function() {     
-        var todoTableString = "",
-        error = false;
-        try {
-            todoTableString = JSON.stringify(this.todos);
-            localStorage["todoTable"] = todoTableString;
-        } catch(e) {
-            alert("Error when writing to Local Storage\n" + e);
-            error = true;
-        }
-        if(!error) console.log(0 + " books saved");
+    Controller.prototype.addItem = function(title) {
+        var ctrl = this;
+        ctrl.todos.create(function(data) {
+            ctrl.view.showTodoList(data);
+        }, title);
     };
 
     Controller.prototype.createTestData = function() {
