@@ -12,15 +12,20 @@
 
     Template.prototype.getAllTodos = function(todoArr) {
         var view = '';
-        var key = "", keys = [];
-        keys = Object.keys(todoArr);
-        for(var i=0; i< keys.length; i++) {
-            key = keys[i];
-            var template = this.getTodo(todoArr[key]);
-            
+        for (var i=0; i<todoArr.length; i++) {
+            var template = this.getTodo(todoArr[i]);
             view += template;
         }
         return view;
+        // var key = "", keys = [];
+        // keys = Object.keys(todoArr);
+        // for(var i=0; i< keys.length; i++) {
+        //     key = keys[i];
+        //     var template = this.getTodo(todoArr[key]);
+            
+        //     view += template;
+        // }
+        // return view;
     }
 
     Template.prototype.getTodo = function(todo) {

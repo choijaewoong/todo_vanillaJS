@@ -6,8 +6,6 @@
 
     ViewTodo.prototype.showTodoList = function(data) { 
         var $todoList = document.querySelector('.todo-list');
-        var keys = [], key = '';
-
         var listItem = this.template.getAllTodos(data);        
         $todoList.innerHTML = listItem;
     }

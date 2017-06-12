@@ -37,7 +37,7 @@
             // var todoArr = Object.values(todoTable);
             filteredTable = todoTable.todoArr;
             filteredTable["4"] = {id: "4", title: "sample"};
-            // var keys = Object.keys(todoTable);            
+            // var keys = Object.keys(todoTable);
             // filteredTable = todoTable.todoArr.filter(function(todo) {
             //     return todo.id === 0;
             // });

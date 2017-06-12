@@ -11,21 +11,21 @@
 
     Controller.prototype.loadAll = function() {
         var ctrl = this;
-        ctrl.todos.read(function(data) {              
+        ctrl.todos.read(function(data) {
             ctrl.view.showTodoList(data);
         });
     };
 
     Controller.prototype.loadActive = function() {
         var ctrl = this;
-        ctrl.todos.read(function(data) {              
+        ctrl.todos.read(function(data) {
             ctrl.view.showTodoList(data);
         }, false);
     };
 
     Controller.prototype.loadCompleted = function() {
         var ctrl = this;
-        ctrl.todos.read(function(data) {              
+        ctrl.todos.read(function(data) {
             ctrl.view.showTodoList(data);
         }, true);
     };
@@ -38,11 +38,12 @@
     };
 
     Controller.prototype.createTestData = function() {
+        // this.todos.
 
         // this.todos.todoArr["0"] = new app.Todo({id:"0", title:"exercise", state:"active"});
         // this.todos.todoArr["1"] = new app.Todo({id:"1", title:"work", state:"active"});
         // this.todos.todoArr["2"] = new app.Todo({id:"2", title:"study", state:"completed"});
-        this.saveAll();
+        // this.saveAll();
     }
 
     // Export to window
