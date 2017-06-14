@@ -3,24 +3,37 @@
 
     function StoreTodo() {}
 
-    StoreTodo.prototype.saveAll = function(callback, todoArr) {
-        console.log("test");
-    }
-    StoreTodo.prototype.findAll = function(callback) {
-        var todoTableString = "", 
-            todoTable = {};
+    StoreTodo.prototype.saveAll = function(callback, title) {
+        var todoTable = {};
         try {
             if(localStorage["todoTable"]) {
-                todoTableString = localStorage["todoTable"];
+                todoTable = JSON.parse(localStorage["todoTable"]);
             }
         } catch(e) {
             alert("Error when reading from Local Storage\n" + e);
         }
-        if(todoTableString) {
-            todoTable = JSON.parse(todoTableString);
+         if(!todoTable.todoArr) {
+            todoTable.todoArr = [];
+        }
+        todoTable.todoArr.push({id: todoTable.todoArr.length, title: title, isCompleted: false});
+        localStorage["todoTable"] = JSON.stringify(todoTable);
+        callback.call(this, todoTable.todoArr);
+    }
+
+    StoreTodo.prototype.findAll = function(callback) {
+        var todoTable = {};
+        try {
+            if(localStorage["todoTable"]) {
+                todoTable = JSON.parse(localStorage["todoTable"]);
+            }
+        } catch(e) {
+            alert("Error when reading from Local Storage\n" + e);
+        }
+        if(todoTable.todoArr) {
             callback.call(this, todoTable.todoArr);
         }
     }
+
     StoreTodo.prototype.find = function(callback, query) {
         var todoTableString = "", 
             todoTable = {},

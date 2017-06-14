@@ -22,6 +22,12 @@
         });
     }
 
+    ViewTodo.prototype.clearNewTodo = function() {
+        console.log("sss");
+        var $newTodo = document.querySelector('.new-todo');
+        $newTodo.value = '';
+    }
+
     // Export to window
 	window.app = window.app || {};
 	window.app.ViewTodo = ViewTodo;

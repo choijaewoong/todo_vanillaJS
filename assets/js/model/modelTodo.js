@@ -5,17 +5,16 @@
         this.active = 0;
         this.completed = 0;
         this.total = 0;
-        // this.todoArr = {};
         this.storage = storage;
     }
-    function Todo(todo) {
-        this.id = todo.id;
-        this.title = todo.title;
-        this.isCompleted = todo.isCompleted;
-    }
+    // function Todo(todo) {
+    //     this.id = todo.id;
+    //     this.title = todo.title;
+    //     this.isCompleted = todo.isCompleted;
+    // }
 
-    Todos.prototype.create = function(callback) {
-        this.storage.saveAll(callback);        
+    Todos.prototype.create = function(callback, title) {
+        this.storage.saveAll(callback, title);
     }
     Todos.prototype.read = function(callback, query) {
         var type = typeof(query);
@@ -30,7 +29,7 @@
                  console.log("error");
             default :
                 break;
-        }        
+        }
     }
     Todos.prototype.update = function() {
 
@@ -42,6 +41,6 @@
     // Export to window
     window.app = window.app || {};
     window.app.Todos = Todos;
-    window.app.Todo = Todo;
+    // window.app.Todo = Todo;
 
 })(window);
