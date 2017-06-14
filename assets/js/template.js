@@ -11,8 +11,10 @@
     }
 
     Template.prototype.getAllTodos = function(todoArr) {
+        console.log("template");
         var view = '';
         if(todoArr) {
+            console.log(todoArr.length);
             for (var i=0; i<todoArr.length; i++) {
                 var template = this.getTodo(todoArr[i]);
                 view += template;

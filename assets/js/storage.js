@@ -35,26 +35,22 @@
     }
 
     StoreTodo.prototype.find = function(callback, query) {
-        var todoTableString = "", 
-            todoTable = {},
+        var todoTable = {},
             filteredTable = {};
         try {
             if(localStorage["todoTable"]) {
-                todoTableString = localStorage["todoTable"];
+                todoTable = JSON.parse(localStorage["todoTable"]);
             }
         } catch(e) {
             alert("Error when reading from Local Storage\n" + e);
         }
-        if(todoTableString) {
-            todoTable = JSON.parse(todoTableString);
-            // var todoArr = Object.values(todoTable);
-            filteredTable = todoTable.todoArr;
-            filteredTable["4"] = {id: "4", title: "sample"};
-            // var keys = Object.keys(todoTable);
-            // filteredTable = todoTable.todoArr.filter(function(todo) {
-            //     return todo.id === 0;
-            // });
+        if(todoTable.todoArr) {
+            filteredTable = todoTable.todoArr.filter(isCompleted);
+            console.log(filteredTable);
             callback.call(this, filteredTable);
+        }
+        function isCompleted(todo) {
+            return query? todo.isCompleted : !todo.isCompleted;
         }
     }
 

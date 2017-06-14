@@ -13,7 +13,7 @@
         var ctrl = this;
         ctrl.todos.read(function(data) {
             ctrl.view.showTodoList(data);
-        });
+        }, false);
     };
 
     Controller.prototype.loadActive = function() {

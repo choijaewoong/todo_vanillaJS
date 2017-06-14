@@ -23,10 +23,12 @@
                 this.storage.findAll(callback);
                 break;
             case "boolean" :
-                this.storage.findAll(calllback);
+                this.storage.find(callback, query);
+                break;
             case "string" :
             case "number" :
                  console.log("error");
+                 break;
             default :
                 break;
         }
